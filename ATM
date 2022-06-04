@@ -1,0 +1,176 @@
+#include<stdio.h>
+#include<字符串>
+#include<stdlib.h>
+结构帐户
+{
+字符名称[100];
+字符密码[7];
+字符身份证[19];
+字符 tel[12];
+char username[100];//卡号待查询
+浮动货币;
+结构帐户 *下一个;
+};
+
+类型定义结构帐户帐户;
+帐户 *头 = 空;
+帐户 *尾部 = 空;
+
+void loadDate（）//更新数据
+{
+FILE *fp=fopen（“E://name.txt”，“r”）;
+if（fp！=NULL）
+	{
+while（！feof（fp））
+		{
+帐户 *节点=（帐户 *）malloc（sizeof（帐户））;
+fscanf（fp，“%s %s %s\n”，Node->name，Node->username，Node->password）;
+Node->next=NULL;
+if（head==NULL）
+			{
+头 = 节点;
+尾=节点;
+			}
+还
+			{
+tail->next=Node;
+尾=节点;
+			}
+		}
+printf（“加载完毕！\n”）;
+fclose（fp）;
+	}
+}
+void printAccount（Account a）//打印账户信息
+{
+printf（“%s\t%s\t%s\n”，a.name，a.username，a.password）;
+}
+void printLinkedList（）//打印链表
+{
+帐户 *curp=head;
+while（curp！=NULL）
+	{
+printAccount（*curp）;
+curp=curp->next;
+	}
+}
+void saveDate（）//保存数据
+{
+FILE *fp=fopen（“E：/name.txt”，“w”）;
+if（fp！=NULL）
+	{
+帐户 *curp=head;
+while（curp！=NULL）
+		{
+fprintf（fp，“%s\t%s\t%s\n”，curp->name，curp->username，curp->password）;
+curp=curp->next;
+		}
+fclose（fp）;
+	}
+}
+
+void signUp（）//登录
+{
+账户 a;
+printf（“请输入卡号：\n”）;
+scanf（“%s”，a.username）;
+
+printf（“请输入密码：\n”）;
+scanf（“%s”，a.password）;
+	
+}
+
+void creataccount（）//创建账号
+{
+账户 a;
+而（1）
+	{
+printf（“请输入姓名：\n身份证号：\n电话号码：\n”）;
+scanf（“%s %s %s”，a.name，a.idcard，a.tel）;
+printf（“请输入初始金额：\n”）;
+scanf（“%f”，&a.money）;
+printf（“正在创建账户，请稍等\n”）;
+随机卡号
+展台（时间（0））;
+int m=rand（）;
+a.用户名=m%1000+10000000;
+printf（“这是您的卡号\n”）;
+printf（“%s”，a.username）;
+	}
+}
+
+void signIn（）
+{
+账户 a、b;
+整型 n;
+printf（“请输入账号：\n”）;
+printf（“请输入密码：\n”）;
+scanf（“%s”，a.password）;
+printf（“请在输入一次密码：\n”）;
+scanf（“%s”，b.password）;
+if（strcmp（a.password，a.password）==0）
+	{
+printf（“请选择业务\n”）;
+printf（“========================\n”）;
+printf（“1.存款\t2.转账\t3.查询余额\n”）;
+printf（“4.修改密码\t5.打回执单\t6.退卡\n”）;
+printf（“========================\n”）;
+而（1）
+		{
+printf（“请输入你要选择的数字\n”）;
+scanf（“%d”，&n）;
+开关（n）
+			{
+案例1：cunkuan（）;break;
+案例2：转章（）;中断;
+案例3：查迅（）;中断;
+案例4：xiugaimima（）;break;
+案例5：慧志丹（）;休息;
+案例6：tuika（）;break;
+			}
+		}
+	}
+
+}
+
+虚空显示中文（）
+{
+	
+printf（“输入1，创建账户\n”）;
+printf（“输入2，登录\n”）;
+字符 c;
+	
+scanf（“%s”，&c）;
+if（c=='1'）
+	{
+注册（）;
+	}
+else if（c=='2'）
+	{
+signIn（）;
+	}
+}
+
+void showEnglish（）
+{
+做点什么。。。
+}
+
+int main（）
+{
+printf（“输入1，选择中文\n”）;
+printf（“Input 2，Show English\n”）;
+字符 c;
+scanf（“%c”，&c）;
+if（c=='1'）
+	{
+showChinese（）;//显示中文菜单
+	}
+else if（c=='2'）
+	{
+showEnglish（）;//显示英文菜单
+	}
+
+loadDate（）;
+返回 0;
+}
